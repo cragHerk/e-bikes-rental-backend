@@ -1,5 +1,4 @@
 services:
   - name: web
-    buildCommand:
     startCommand: npm start
     env: node
