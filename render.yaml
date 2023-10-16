@@ -1,5 +1,7 @@
 services:
   - name: web
-    buildCommand: npm install
+    installCommand: |
+      npm install
+    installDirectory: /
     startCommand: npm start
     env: node
