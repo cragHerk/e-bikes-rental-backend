@@ -1,7 +1,7 @@
-services:
-  - name: web
-    installCommand: |
-      npm install
-    installDirectory: /
-    startCommand: npm start
-    env: node
+# services:
+#   - name: web
+#     installCommand: |
+#       npm install
+#     installDirectory: /
+#     startCommand: npm start
+#     env: node
