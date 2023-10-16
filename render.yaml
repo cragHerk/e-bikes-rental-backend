@@ -1,6 +1,5 @@
 services:
   - name: web
-    buildCommand: |
-      npm install --production && npm prune --production && npm install express
+    buildCommand: npm install --production && npm prune --production && npm run build
     startCommand: npm start
     env: node
