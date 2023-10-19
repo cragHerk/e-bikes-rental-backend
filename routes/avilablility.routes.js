@@ -25,7 +25,11 @@ router.get("/availability/:bikeModel", async (req, res) => {
       }
     });
 
-    res.status(200).json({ reservedDates });
+    if (reservedDates.length === 0) {
+      res.status(200).json({ reservedDates: [] });
+    } else {
+      res.status(200).json({ reservedDates });
+    }
   } catch (error) {
     res.status(500).json({ message: "Error retrieving date availability." });
   }
