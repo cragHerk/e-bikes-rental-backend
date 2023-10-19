@@ -16,7 +16,7 @@ router.post("/book", async (req, res) => {
     bikeModel,
     startDate,
     endDate,
-    paymentOnSite,
+    totalPrice,
   } = req.body;
 
   try {
@@ -56,7 +56,7 @@ router.post("/book", async (req, res) => {
       bikeModel,
       startDate,
       endDate,
-      paymentOnSite,
+      totalPrice,
     });
 
     await newReservation.save();

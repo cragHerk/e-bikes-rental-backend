@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const reservationSchema = new mongoose.Schema({
   firstName: { type: String, required: true },
   lastName: { type: String, required: true },
-  companyName: { type: String },
+  companyName: { type: String, required: false },
   country: { type: String, required: true },
   street: { type: String, required: true },
   postalCode: { type: String, required: true },
@@ -13,7 +13,7 @@ const reservationSchema = new mongoose.Schema({
   bikeModel: { type: String, required: true },
   startDate: { type: Date, required: true },
   endDate: { type: Date, required: true },
-  paymentOnSite: { type: Boolean, default: false },
+  totalPrice: { type: Number, required: true },
 });
 
 const Reservation = mongoose.model("Reservation", reservationSchema);
