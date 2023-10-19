@@ -1,3 +1,7 @@
+require("express");
+const router = express.Router();
+const Reservation = require("../schemas/reservation.schema");
+
 router.get("/availability/:bikeModel", async (req, res) => {
   const { bikeModel } = req.params;
 
