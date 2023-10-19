@@ -1,4 +1,4 @@
-require("express");
+const express = require("express");
 const router = express.Router();
 const Reservation = require("../schemas/reservation.schema");
 
