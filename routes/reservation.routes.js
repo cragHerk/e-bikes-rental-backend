@@ -26,12 +26,14 @@ router.post("/book", async (req, res) => {
           $and: [
             { startDate: { $lte: endDate } },
             { endDate: { $gte: startDate } },
+            { bikeModel },
           ],
         },
         {
           $and: [
             { startDate: { $lte: startDate } },
             { endDate: { $gte: endDate } },
+            { bikeModel },
           ],
         },
       ],

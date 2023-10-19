@@ -1,10 +1,11 @@
-const express = require("express");
-const router = express.Router();
-const Reservation = require("../schemas/reservation.schema");
+router.get("/availability/:bikeModel", async (req, res) => {
+  const { bikeModel } = req.params;
 
-router.get("/availability", async (req, res) => {
   try {
-    const reservations = await Reservation.find({}, "startDate endDate -_id");
+    const reservations = await Reservation.find(
+      { bikeModel },
+      "startDate endDate -_id"
+    );
 
     const reservedDates = [];
 
