@@ -1,5 +1,9 @@
 const express = require("express");
 const router = express.Router();
+const { sendEmail } = require("../email/emailSender.js");
+const {
+  generateBookingConfirmationEmail,
+} = require("../email/emailTemplates.js");
 const Reservation = require("../schemas/reservation.schema");
 
 router.post("/book", async (req, res) => {
@@ -60,6 +64,8 @@ router.post("/book", async (req, res) => {
     });
 
     await newReservation.save();
+    const emailInfo = generateBookingConfirmationEmail(newReservation);
+    await sendEmail(emailInfo);
 
     res.status(201).json({ message: "Rezerwacja została pomyślnie zapisana." });
   } catch (error) {
