@@ -17,21 +17,45 @@ const generateBookingConfirmationEmail = (reservation) => {
   } = reservation;
 
   const emailSubject = "Potwierdzenie rezerwacji";
-  const emailText = `
-  <p><strong>Imię:</strong> ${firstName}</p>
-  <p><strong>Nazwisko:</strong> ${lastName}</p>
-  ${companyName ? `<p><strong>Firma:</strong> ${companyName}</p>` : "brak"}
-  <p><strong>Kraj:</strong> ${country}</p>
-  <p><strong>Ulica:</strong> ${street}</p>
-  <p><strong>Kod pocztowy:</strong> ${postalCode}</p>
-  <p><strong>Miasto:</strong> ${city}</p>
-  <p><strong>Telefon:</strong> ${phone}</p>
-  <p><strong>Email:</strong> ${email}</p>
-  <p><strong>Model roweru:</strong> ${bikeModel}</p>
-  <p><strong>Data początkowa:</strong> ${startDate}</p>
-  <p><strong>Data końcowa:</strong> ${endDate}</p>
-  <p><strong>Cena:</strong> ${totalPrice} zł</p>
-`;
+  const emailText =
+    "Potwierdzenie rezerwacji\n\n" +
+    "Imię: " +
+    firstName +
+    "\n" +
+    "Nazwisko: " +
+    lastName +
+    "\n" +
+    (companyName ? "Firma: " + companyName + "\n" : "") +
+    "Kraj: " +
+    country +
+    "\n" +
+    "Ulica: " +
+    street +
+    "\n" +
+    "Kod pocztowy: " +
+    postalCode +
+    "\n" +
+    "Miasto: " +
+    city +
+    "\n" +
+    "Telefon: " +
+    phone +
+    "\n" +
+    "Email: " +
+    email +
+    "\n" +
+    "Model roweru: " +
+    bikeModel +
+    "\n" +
+    "Data początkowa: " +
+    startDate +
+    "\n" +
+    "Data końcowa: " +
+    endDate +
+    "\n" +
+    "Cena: " +
+    totalPrice +
+    " zł\n";
 
   return { subject: emailSubject, text: emailText };
 };
