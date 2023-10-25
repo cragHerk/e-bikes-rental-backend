@@ -16,8 +16,8 @@ const generateBookingConfirmationEmail = (reservation) => {
     totalPrice,
   } = reservation;
 
-  const emailSubject = "Potwierdzenie rezerwacji";
-  const emailHtml = `
+  const subject = "Potwierdzenie rezerwacji";
+  const html = `
     <h2>Potwierdzenie rezerwacji</h2>
     <p><strong>Imię:</strong> ${firstName}</p>
     <p><strong>Nazwisko:</strong> ${lastName}</p>
@@ -34,7 +34,7 @@ const generateBookingConfirmationEmail = (reservation) => {
     <p><strong>Cena:</strong> ${totalPrice} zł</p>
 `;
 
-  return { subject: emailSubject, html: emailHtml };
+  return { subject: subject, html: html };
 };
 
 module.exports = {
