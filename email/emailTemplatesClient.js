@@ -36,7 +36,7 @@ const generateBookingClientEmail = (reservation) => {
     <p>kontakt : 123-321-123</p>
 `;
 
-  return { subject: subject, html: html };
+  return { subject: subject, html: html, email: email };
 };
 
 module.exports = {
