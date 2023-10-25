@@ -65,7 +65,7 @@ router.post("/book", async (req, res) => {
 
     await newReservation.save();
     const emailInfo = generateBookingConfirmationEmail(newReservation);
-    console.log("hej", emailInfo);
+
     await sendEmail(emailInfo);
 
     res.status(201).json({ message: "Rezerwacja została pomyślnie zapisana." });
