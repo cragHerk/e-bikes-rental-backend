@@ -17,45 +17,23 @@ const generateBookingConfirmationEmail = (reservation) => {
   } = reservation;
 
   const emailSubject = "Potwierdzenie rezerwacji";
-  const emailText =
-    "Potwierdzenie rezerwacji\n\n" +
-    "Imię: " +
-    firstName +
-    "\n" +
-    "Nazwisko: " +
-    lastName +
-    "\n" +
-    (companyName ? "Firma: " + companyName + "\n" : "") +
-    "Kraj: " +
-    country +
-    "\n" +
-    "Ulica: " +
-    street +
-    "\n" +
-    "Kod pocztowy: " +
-    postalCode +
-    "\n" +
-    "Miasto: " +
-    city +
-    "\n" +
-    "Telefon: " +
-    phone +
-    "\n" +
-    "Email: " +
-    email +
-    "\n" +
-    "Model roweru: " +
-    bikeModel +
-    "\n" +
-    "Data początkowa: " +
-    startDate +
-    "\n" +
-    "Data końcowa: " +
-    endDate +
-    "\n" +
-    "Cena: " +
-    totalPrice +
-    " zł\n";
+  const emailText = `
+    Potwierdzenie rezerwacji
+    
+    Imię: ${firstName}
+    Nazwisko: ${lastName}
+    ${companyName ? `Firma: ${companyName}` : ""}
+    Kraj: ${country}
+    Ulica: ${street}
+    Kod pocztowy: ${postalCode}
+    Miasto: ${city}
+    Telefon: ${phone}
+    Email: ${email}
+    Model roweru: ${bikeModel}
+    Data początkowa: ${startDate}
+    Data końcowa: ${endDate}
+    Cena: ${totalPrice} zł
+    `;
 
   return { subject: emailSubject, text: emailText };
 };
