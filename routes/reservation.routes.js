@@ -1,9 +1,11 @@
 const express = require("express");
 const router = express.Router();
 const { sendEmail } = require("../email/emailSender.js");
+const { sendEmailToClient } = require("../email/emailSenderToClient.js");
+const { generateBookingEmail } = require("../email/emailTemplates.js");
 const {
-  generateBookingConfirmationEmail,
-} = require("../email/emailTemplates.js");
+  generateBookingClientEmail,
+} = require("../email/emailTemplatesClient.js");
 const Reservation = require("../schemas/reservation.schema");
 
 router.post("/book", async (req, res) => {
@@ -72,12 +74,20 @@ router.post("/book", async (req, res) => {
     }
 
     try {
-      const emailInfo = generateBookingConfirmationEmail(newReservation);
+      const emailInfo = generateBookingEmail(newReservation);
       await sendEmail(emailInfo);
     } catch (emailError) {
       return res
         .status(500)
         .json({ message: "Błąd podczas wysyłania e-maila." });
+    }
+    try {
+      const emailClientInfo = generateBookingClientEmail(newReservation);
+      await sendEmailToClient(emailClientInfo);
+    } catch (emailError) {
+      return res
+        .status(500)
+        .json({ message: "Błąd podczas wysyłania e-maila do klienta." });
     }
 
     res.status(201).json({ message: "Rezerwacja została pomyślnie zapisana." });

@@ -1,5 +1,5 @@
 require("dotenv").config();
-const generateBookingEmail = (reservation) => {
+const generateBookingClientEmail = (reservation) => {
   const {
     firstName,
     lastName,
@@ -32,11 +32,13 @@ const generateBookingEmail = (reservation) => {
     <p><strong>Data początkowa:</strong> ${startDate}</p>
     <p><strong>Data końcowa:</strong> ${endDate}</p>
     <p><strong>Cena:</strong> ${totalPrice} zł</p>
+    <h4>Wypożyczalnia rowerów elektrycznych Słotwina</h4>
+    <p>kontakt : 123-321-123</p>
 `;
 
   return { subject: subject, html: html };
 };
 
 module.exports = {
-  generateBookingEmail,
+  generateBookingClientEmail,
 };
