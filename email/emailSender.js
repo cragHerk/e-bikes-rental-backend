@@ -9,14 +9,13 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const sendEmail = async ({ emailInfo }) => {
-  const { subject, html } = emailInfo;
+const sendEmail = async (emailInfo) => {
   try {
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: process.env.EMAIL_USER,
-      subject,
-      html,
+      subject: emailInfo.subject,
+      html: emailInfo.html,
       headers: {
         "Content-Type": "text/html; charset=utf-8",
       },
