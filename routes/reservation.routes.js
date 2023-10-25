@@ -63,13 +63,26 @@ router.post("/book", async (req, res) => {
       totalPrice,
     });
 
-    await newReservation.save();
-    const emailInfo = generateBookingConfirmationEmail(newReservation);
-    await sendEmail(emailInfo);
+    try {
+      await newReservation.save();
+    } catch (dbError) {
+      return res.status(500).json({
+        message: "Błąd podczas zapisywania rezerwacji w bazie danych.",
+      });
+    }
+
+    try {
+      const emailInfo = generateBookingConfirmationEmail(newReservation);
+      await sendEmail(emailInfo);
+    } catch (emailError) {
+      return res
+        .status(500)
+        .json({ message: "Błąd podczas wysyłania e-maila." });
+    }
 
     res.status(201).json({ message: "Rezerwacja została pomyślnie zapisana." });
   } catch (error) {
-    res.status(500).json({ message: "Błąd podczas zapisywania rezerwacji." });
+    res.status(500).json({ message: "Błąd podczas przetwarzania rezerwacji." });
   }
 });
 
