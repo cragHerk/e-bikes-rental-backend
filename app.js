@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const cron = require("node-cron");
-const deletePastReservations = require("./path/to/deletePastReservations");
+const deletePastReservations = require("./utils/deletePastReservations");
 require("dotenv").config();
 
 const app = express();
