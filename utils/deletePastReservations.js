@@ -9,3 +9,4 @@ const deletePastReservations = async () => {
     console.error("Błąd podczas usuwania przeszłych rezerwacji:", error);
   }
 };
+module.exports = deletePastReservations;
