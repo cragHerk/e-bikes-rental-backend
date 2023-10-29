@@ -1,4 +1,3 @@
-require("dotenv").config();
 const generateBookingEmail = (reservation) => {
   const {
     firstName,
