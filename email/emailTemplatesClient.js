@@ -3,12 +3,6 @@ const generateBookingClientEmail = (reservation) => {
   const {
     firstName,
     lastName,
-    companyName = "brak",
-    country,
-    street,
-    postalCode,
-    city,
-    phone,
     email,
     bikeModel,
     startDate,
