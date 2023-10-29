@@ -19,7 +19,7 @@ const generateBookingClientEmail = (reservation) => {
   const subject = "Potwierdzenie rezerwacji KamRock";
   const html = `
     <h2>Hej tu Kamil z wypożyczalni rowerów</h2>
-    <h3>Oto potwierdzenie Twojej rezerwacji</h3>
+    <h3>Oto potwierdzenie Twojej rezerwacji:</h3>
     <p><strong>Imię:</strong> ${firstName}</p>
     <p><strong>Nazwisko:</strong> ${lastName}</p>
     ${companyName ? `<p><strong>Firma:</strong> ${companyName}</p>` : ""}
