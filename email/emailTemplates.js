@@ -1,3 +1,4 @@
+const moment = require("moment");
 const generateBookingEmail = (reservation) => {
   const {
     firstName,
@@ -14,7 +15,8 @@ const generateBookingEmail = (reservation) => {
     endDate,
     totalPrice,
   } = reservation;
-
+  const formattedStartDate = moment(startDate).format("DD/MM/YYYY");
+  const formattedEndDate = moment(endDate).format("DD/MM/YYYY");
   const subject = "Potwierdzenie rezerwacji";
   const html = `
     <h2>Potwierdzenie rezerwacji</h2>
@@ -28,8 +30,8 @@ const generateBookingEmail = (reservation) => {
     <p><strong>Telefon:</strong> ${phone}</p>
     <p><strong>Email:</strong> ${email}</p>
     <p><strong>Model roweru:</strong> ${bikeModel}</p>
-    <p><strong>Data początkowa:</strong> ${startDate}</p>
-    <p><strong>Data końcowa:</strong> ${endDate}</p>
+    <p><strong>Data początkowa:</strong> ${formattedStartDate}</p>
+    <p><strong>Data końcowa:</strong> ${formattedEndDate}</p>
     <p><strong>Cena:</strong> ${totalPrice} zł</p>
 `;
 
