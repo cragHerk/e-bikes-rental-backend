@@ -24,10 +24,10 @@ const generateBookingClientEmail = (reservation) => {
     <p><strong>Data początkowa:</strong> ${formattedStartDate}</p>
     <p><strong>Data końcowa:</strong> ${formattedEndDate}</p>
     <p><strong>Cena:</strong> ${totalPrice} zł</p>
-    <h4>Wypożyczalnia rowerów elektrycznych Słotwina</h4>
-    <p>Masz pytanie, zadzwoń !  : 123-321-123</p>
+    <h4>Wypożyczalnia rowerów elektrycznych Lipowa</h4>
+    <p>Masz pytanie, zadzwoń !  : +48 536196751</p>
     <p>Do zobaczenia: KamRock - wypożyczalnia rowerów elektrycznych </p>
-    <p> adres : Słotwina 123</p>
+    <p> adres : Lipowa ul.sloneczne wzgórze 28</p>
   `;
 
   return { subject: subject, html: html, email: email };
