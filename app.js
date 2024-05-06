@@ -23,9 +23,8 @@ app.use((err, req, res, next) => {
   res.status(500).json({ message: "Internal server error." });
 });
 
-deletePastReservations();
 cron.schedule(
-  "0 0 * * 0",
+  "0 0 1 */2 *",
   () => {
     deletePastReservations();
   },
