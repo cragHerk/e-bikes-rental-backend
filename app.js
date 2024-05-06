@@ -10,9 +10,11 @@ app.use(express.json());
 
 const availabilityRouter = require("./routes/availability.routes");
 const reservationRouter = require("./routes/reservation.routes");
+const getReservations = require("./routes/getReservations.routes");
 
 app.use("/api", availabilityRouter);
 app.use("/api", reservationRouter);
+app.use("/api", getReservations);
 
 app.use((req, res) => {
   res.status(404).json({ message: "Site not found." });
