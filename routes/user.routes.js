@@ -94,6 +94,18 @@ router.post("/login", async (req, res, next) => {
     next(error);
   }
 });
+router.get("/current", auth, async (req, res, next) => {
+  try {
+    const user = req.user;
+    res.json({
+      status: "Success",
+      code: 200,
+      data: user,
+    });
+  } catch (err) {
+    next(err);
+  }
+});
 router.get("/logout", auth, async (req, res, next) => {
   const { email } = req.user;
   await setToken(email, null);
